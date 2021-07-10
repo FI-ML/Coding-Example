@@ -27,3 +27,10 @@
   - 4 a mailto link is dynamically created and displayed, with a custom subject line saying “That was an easy Task, Systaro!"
 
 ---
+
+## Docker
+
+* Step 1: open console docker build -t {your container name} .
+* Step 2: docker run -p 80:80 {your container name}
+
+Open Browser http://localhost:80/
