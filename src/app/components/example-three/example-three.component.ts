@@ -16,6 +16,8 @@ export class ExampleThreeComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
+    this.loginForm.controls['secondEmail'].disable();
+    this.loginForm.controls['thirdEmail'].disable();
   }
 
 
