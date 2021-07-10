@@ -1,0 +1,24 @@
+<div id="card-container">
+
+  <mat-paginator [length]="this.comments.length"
+                 [pageSize]="20"
+                 [pageSizeOptions]="[5,10,20,50,100]"
+                 (page)="OnPageChanged($event)">
+
+  </mat-paginator>
+
+  <div *ngFor="let comment of pageSlice; let i = index">
+    <mat-card class="mat-elevation-z4">
+      <div class="btn-container">
+        <button mat-fab class="btn-user" disabled>
+          <mat-icon>account_circle</mat-icon>
+        </button>
+      </div>
+      <mat-card-header>
+        <mat-card-subtitle class="product">{{comment.title}} </mat-card-subtitle> <p id="counter">{{i+1}}</p>
+        <mat-card-subtitle class="product">{{comment.body}}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </div>
+
+</div>

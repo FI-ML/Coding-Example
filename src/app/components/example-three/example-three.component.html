@@ -1,0 +1,28 @@
+<form [formGroup]="loginForm" id="ex-three">
+
+  <br>
+  <mat-form-field >
+    <input matInput placeholder="email" formControlName="email" >
+  </mat-form-field>
+  <mat-icon id="icon" [hidden]="!isValidEmail()">check_circle_outline</mat-icon>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput formControlName="secondEmail" [value]="getFirstPart()">
+  </mat-form-field>
+
+  <br>
+
+
+  <mat-form-field>
+    <input matInput  formControlName="thirdEmail" [value]="getSecondPart()">
+  </mat-form-field>
+
+  <br>
+
+  <div *ngIf="isValidEmail()">
+    <p>Mailto: <a href="mailto:{{this.loginForm.value.email}}?subject=Example three is ready &cc=test.test@test.com&body=That was an easy Task, Systaro!">{{this.loginForm.value.email}}</a></p>
+  </div>
+
+</form>
