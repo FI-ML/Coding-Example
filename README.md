@@ -28,6 +28,10 @@
 
 ---
 
+## Build
+
+* open app directory in console and ng build command
+
 ## Docker
 
 * Step 1: open console docker build -t {your container name} .
