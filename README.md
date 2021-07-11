@@ -28,13 +28,3 @@
 
 ---
 
-## Build
-
-* open app directory in console and ng build command
-
-## Docker
-
-* Step 1: open console docker build -t {your container name} .
-* Step 2: docker run -p 80:80 {your container name}
-
-Open Browser http://localhost:80/
