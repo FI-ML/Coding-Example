@@ -1,15 +1,17 @@
-#ex-three{
+#ex-three {
   margin-top: 2%;
   margin-left: 5%;
   padding-left: 2%;
   border: 2px solid lightgray;
-  width:11%;
+  width: 11%;
+  min-width: 215px;
   align-items: center;
 }
+
 [hidden] {
   display: none !important;
 }
 
-#icon{
+#icon {
   color: green;
 }

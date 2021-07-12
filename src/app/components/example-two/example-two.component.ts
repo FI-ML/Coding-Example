@@ -1,27 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-example-two',
   templateUrl: './example-two.component.html',
   styleUrls: ['./example-two.component.css']
 })
-export class ExampleTwoComponent implements OnInit {
+export class ExampleTwoComponent {
 
-  public value= 0;
+  public value = 0;
   public result = 0;
-  public toggle = true;
-  constructor() { }
 
-  ngOnInit(): void {
+  constructor() {
   }
 
-
-  sumOfDigits(){
-
-
+  sumOfDigits() {
     if (this.value != 0) {
-
-      var value = this.value,
+      let value = this.value,
         sum = value
           .toString()
           .split('')

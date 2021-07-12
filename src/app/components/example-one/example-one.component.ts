@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CommentModel} from "../../../models/comment-model";
 import {CommentService} from "../../../services/comment.service";
 import {HttpErrorResponse} from "@angular/common/http";
@@ -14,17 +14,18 @@ export class ExampleOneComponent implements OnInit {
   public comments!: CommentModel[];
   public pageSlice: any;
 
-  constructor(private commentService: CommentService) { }
+  constructor(private commentService: CommentService) {
+  }
 
   ngOnInit(): void {
     this.getComments();
   }
 
-  public getComments(){
+  public getComments() {
     this.commentService.getComments().subscribe(next => {
         this.comments = next;
 
-        this.pageSlice= this.comments.slice(0,20);
+        this.pageSlice = this.comments.slice(0, 20);
 
       },
       (error: HttpErrorResponse) => {
@@ -36,10 +37,10 @@ export class ExampleOneComponent implements OnInit {
     const startIndex = event.pageIndex * event.pageSize;
     let endIndex = startIndex + event.pageSize;
 
-    if(endIndex > this.comments.length){
+    if (endIndex > this.comments.length) {
       endIndex = this.comments.length;
     }
-    this.pageSlice = this.comments.slice(startIndex,endIndex);
+    this.pageSlice = this.comments.slice(startIndex, endIndex);
   }
 
 }

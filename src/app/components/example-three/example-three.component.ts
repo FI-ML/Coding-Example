@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-example-three',
@@ -12,7 +12,8 @@ export class ExampleThreeComponent implements OnInit {
 
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+  }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -23,7 +24,8 @@ export class ExampleThreeComponent implements OnInit {
 
   private initializeForm() {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
       secondEmail: [''],
       thirdEmail: [''],
     })
@@ -33,13 +35,14 @@ export class ExampleThreeComponent implements OnInit {
     return this.loginForm.get('email');
   }
 
-  isValidEmail():boolean{
-    return <boolean>this.loginForm.get('email')?.valid;
+  isValidEmail(): boolean {
+    const control: AbstractControl | null = this.loginForm.get('email');
+    return control != null ? control.valid : false;
   }
 
-  getFirstPart(){
-      let value = this.firstPartEmail = this.loginForm.get('email')?.value;
-      return value.split('@')[0];
+  getFirstPart() {
+    let value = this.firstPartEmail = this.loginForm.get('email')?.value;
+    return value.split('@')[0];
   }
 
   getSecondPart() {
